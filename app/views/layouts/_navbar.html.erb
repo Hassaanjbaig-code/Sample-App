@@ -1,0 +1,21 @@
+<% nav = {
+  Home:  { link: root_url },
+  Help:  { link: help_url },
+  LogIn: { link: "log_in_url" }
+} %>
+
+<header class="navbar navbar-fixed-top navbar-inverse bg-black">
+    <div class="container">
+      <%= link_to "Sample App", "#", id: "logo" %>
+  <nav>
+    <ul class="nav navbar-collapse navbar-right gap-3">
+      <% nav.each do | key, value | %>
+        <li class="nav-item">
+          <%= link_to key, value[:link], class: "nav-link text-white" %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+    </div>
+</header>
+
