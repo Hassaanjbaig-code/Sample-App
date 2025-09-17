@@ -4,5 +4,6 @@ class User < ApplicationRecord
   VALID_EMAIL_RAGEX = /\A[\w+\-.]+@[a-z\d\.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 }, format: { with:  VALID_EMAIL_RAGEX }, uniqueness: true
 
+    validates :password, :password_confirmation, presence: true
   has_secure_password
 end

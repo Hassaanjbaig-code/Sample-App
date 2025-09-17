@@ -1,0 +1,22 @@
+$gray-medium-light: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb !important;
+  width: 100% !important;
+  margin: 10px 0 !important;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+label {
+  font-weight: 600;
+}

@@ -1,0 +1,11 @@
+<%= form_with model: user do | f | %>
+  <%= f.label :name %>
+  <%= f.text_field :name, placeholder: "Enter Name" %>
+  <%= f.label :email %>
+  <%= f.email_field :email, placeholder: "Enter Email" %>
+  <%= f.label :password %>
+  <%= f.password_field :password, placeholder: "Enter Password" %>
+  <%= f.label :password_confirmation, "Confirmation" %>
+  <%= f.password_field :password_confirmation, placeholder: "Enter Password again" %>
+  <%= f.submit "Create my Account", class: "btn btn-primary" %> 
+<% end %>
