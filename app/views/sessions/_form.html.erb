@@ -1,0 +1,8 @@
+<%= form_with url: log_in_path, scope: :session  do | form | %>
+  <%= form.label :email %>
+  <%= form.email_field :email, placeholder: "Enter Email", class: "form-control" %>
+  <%= form.label :password %>
+  <%= form.password_field :password, placeholder: "Enter Password", class: "form-control" %>
+  <%= form.submit "Log In", class: "btn btn-primary" %>
+
+<% end %>

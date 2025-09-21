@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
+  include SessionsHelper
+
   def new
-  @user = User.new
+    @user = User.new
   end
   def show
     @user = User.find_by_id params[:id]
@@ -10,6 +12,8 @@ class UsersController < ApplicationController
 
     respond_to do | format |
       if @user.save
+        reset_session
+        log_in @user
         format.html { redirect_to @user, flash: { success: "Welcome to sample app" } }
       else
         format.html { render "new", status: :unprocessable_entity }

@@ -18,12 +18,33 @@ $light-gray: #777;
   }
 }
 
+
 footer {
   a {
     color: #8a8686d1;
 
     &:hover {
       color: #222;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  footer {
+    small {
+      display: block;
+      float: none;
+      margin-bottom: 1em;
+    }
+
+    ul {
+      float: none;
+      padding: 0;
+
+      li {
+        float: none;
+        margin-left: 0;
+      }
     }
   }
 }
@@ -64,18 +85,22 @@ aside {
   .user_info {
     margin-top: 45px;
   }
+
   section {
-      padding: 10px 0;
-      margin-top: 25px;
-      &:first-child {
-        border: 0;
-        padding-top: 0;
+    padding: 10px 0;
+    margin-top: 25px;
+
+    &:first-child {
+      border: 0;
+      padding-top: 0;
     }
+
     span {
-        display: block;
-        margin-bottom: 3px;
-        line-height: 1;
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
     }
+
     h1 {
       font-size: 1.4em;
       text-align: left;
