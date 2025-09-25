@@ -3,6 +3,10 @@
   <%= form.email_field :email, placeholder: "Enter Email", class: "form-control" %>
   <%= form.label :password %>
   <%= form.password_field :password, placeholder: "Enter Password", class: "form-control" %>
-  <%= form.submit "Log In", class: "btn btn-primary" %>
-
+  <%= form.label :remember_me, class: "checkbox inline" %>
+  <div class="d-flex checkbox">
+    <%= form.check_box :remember_me, class: "w-auto" %>
+    <span> Remember me on this computer </span>
+  </div>
+    <%= form.submit "Log In", class: "btn btn-primary" %>
 <% end %>

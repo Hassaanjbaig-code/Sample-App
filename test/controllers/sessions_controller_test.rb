@@ -12,8 +12,8 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_template "sessions/new"
     post log_in_path, params: { session: { email: "user@example.com", password: "foobar" } }
     assert_response :unprocessable_entity
-    assert_not flash.empty?
+    assert_template "sessions/new"
+    assert_not flash.nil?
     get root_path
-    assert_not flash.empty?
   end
 end

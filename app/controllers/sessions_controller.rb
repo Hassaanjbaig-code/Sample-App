@@ -6,19 +6,19 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by email: session_params[:email].downcase
-    if @user && @user.authenticate(session_params[:password])
+    if @user&.authenticate(session_params[:password])
       reset_session
+      params[:session][:remember_me] == "1" ? remember(@user) : forget(@user)
       log_in @user
       redirect_to @user
     else
-      p "Invalid Email/ Password"
         flash[:danger] = "Invalid Email/Password combination"
        render "new", status: :unprocessable_entity
     end
   end
 
   def destroy
-    log_out
+    log_out if logged_in?
     redirect_to root_path, status: :see_other
   end
 

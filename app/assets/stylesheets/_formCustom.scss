@@ -6,7 +6,10 @@ $gray-medium-light: #eaeaea;
   box-sizing: border-box;
 }
 
-input, textarea, select, .uneditable-input {
+input,
+textarea,
+select,
+.uneditable-input {
   border: 1px solid #bbb !important;
   width: 100% !important;
   margin: 10px 0 !important;
@@ -19,4 +22,21 @@ input {
 
 label {
   font-weight: 600;
+}
+
+.checkbox {
+  align-items: center;
+
+  margin-top: -10px;
+  margin-bottom: 10px;
+
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
 }

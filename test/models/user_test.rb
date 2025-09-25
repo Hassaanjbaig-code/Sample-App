@@ -29,6 +29,9 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+    test "authenticated? should return false for a user with nil" do
+      assert_not @user.authenticated?('')
+    end
 
    test "email validation should accept valid addresses" do
     valid_addresses = %w[user@example.com USER@foo.COM
