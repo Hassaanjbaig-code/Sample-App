@@ -55,6 +55,7 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem "faker"
 end
 
 group :test do
@@ -70,3 +71,5 @@ group :test do
 end
 
 gem "foreman", "~> 0.90.0"
+
+gem "will_paginate", "~> 4.0"

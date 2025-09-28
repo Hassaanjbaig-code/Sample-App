@@ -23,4 +23,15 @@
     }
   }
 }
+.gravatar_edit {
+  display: flex;
+  gap: 1rem;
+
+  img {
+      border-radius: 2rem;
+  }
+  a {
+    text-decoration: none;
+  }
+}
 

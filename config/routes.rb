@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get "/log_in", to: "sessions#new"
   delete "/log_out", to: "sessions#destroy"
   post "/log_in", to: "sessions#create"
-  get "/sign_up", to: "users#new"
+  get "/signup", to: "users#new"
   get "static_pages/home"
   get "/help", to: "static_pages#help"
   get "/about", to: "static_pages#about"

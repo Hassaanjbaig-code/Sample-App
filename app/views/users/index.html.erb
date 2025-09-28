@@ -1,0 +1,9 @@
+<%= provide(:title, "All User" ) %>
+<h1> <%= yield :title %></h1>
+
+<ul class="users">
+  <% @users.each do | user | %>
+    <%= render user  %>
+  <% end %>
+</ul>
+<%= will_paginate @users %>

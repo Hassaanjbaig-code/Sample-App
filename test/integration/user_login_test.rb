@@ -12,7 +12,7 @@ end
 
 
 class InvalidPasswordTest < UserLoginTest
-  test " login path " do
+  test "login path" do
     get log_in_path
     assert_template "sessions/new"
   end

@@ -4,12 +4,12 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_RAGEX = /\A[\w+\-.]+@[a-z\d\.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 }, format: { with:  VALID_EMAIL_RAGEX }, uniqueness: true
-  validates :password, :password_confirmation, presence: true
   has_secure_password
 
   def remember
     self.remember_token = User.new_token
     update_attribute(:remember_digest, User.digest(self.remember_token))
+    remember_digest
   end
 
   def authenticated?(remember_token)
@@ -19,6 +19,10 @@ class User < ApplicationRecord
 
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  def session_token
+    remember_digest || remember
   end
 
   class << self

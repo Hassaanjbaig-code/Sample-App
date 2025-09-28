@@ -18,6 +18,46 @@ $light-gray: #777;
   }
 }
 
+// Style the will_paginate container
+.pagination {
+  display: flex;
+  justify-content: center; // center the links
+  gap: 0.5rem; // space between links
+  margin-top: 1rem;
+
+  // All links
+  a, span, em {
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #007bff; // link color
+    background-color: #fff;
+    font-size: 0.9rem;
+
+    &:hover {
+      background-color: #f0f0f0;
+      text-decoration: none;
+    }
+  }
+
+  // Current page
+  em.current {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+    font-weight: bold;
+  }
+
+  // Disabled links (like "previous" on page 1)
+  .disabled {
+    color: #999;
+    background-color: #eee;
+    border-color: #ddd;
+    cursor: not-allowed;
+  }
+}
 
 footer {
   a {
@@ -119,3 +159,15 @@ aside {
 .gravator_edit {
   margin-top: 15px;
 }
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $light-gray;
+  }
+}
+
+
