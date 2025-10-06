@@ -32,8 +32,4 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
   end
   end
 
-  test "should display only activated user" do
-    log_in_as(@user)
-    get users_path
-  end
 end

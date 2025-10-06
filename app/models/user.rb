@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  attr_accessor :remember_token, :activation_token
+  attr_accessor :remember_token, :activation_token, :reset_token
   before_save :downcase
   before_create :create_activation_digest
   validates :name, presence: true, length: { maximum: 50 }
@@ -13,10 +13,19 @@ class User < ApplicationRecord
     remember_digest
   end
 
+  def create_password_reset
+    self.reset_token = User.new_token
+    update_columns(reset_digest: User.digest(self.reset_token), reset_sent_at: Time.zone.now)
+  end
+
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
+  end
+
   # def authenticated?(remember_token)
-    #return false if remember_digest.nil?
-    #BCrypt::Password.new(remember_digest).is_password?(remember_token)
-  #end
+  # return false if remember_digest.nil?
+  # BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  # end
 
   def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")
@@ -26,6 +35,10 @@ class User < ApplicationRecord
 
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
   end
 
   def session_token

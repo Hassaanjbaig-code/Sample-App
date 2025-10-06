@@ -2,7 +2,9 @@
   <%= form.label :email %>
   <%= form.email_field :email, placeholder: "Enter Email", class: "form-control" %>
   <%= form.label :password %>
+  <%= link_to "forget password", new_password_reset_path %>
   <%= form.password_field :password, placeholder: "Enter Password", class: "form-control" %>
+
   <%= form.label :remember_me, class: "checkbox inline" %>
   <div class="d-flex checkbox">
     <%= form.check_box :remember_me, class: "w-auto" %>
